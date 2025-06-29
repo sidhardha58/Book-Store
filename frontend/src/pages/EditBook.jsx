@@ -1,14 +1,14 @@
-import axios from 'axios';
-import { useSnackbar } from 'notistack';
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import BackButton from '../components/BackButton';
-import Spinner from '../components/Spinner';
+import axios from "axios";
+import { useSnackbar } from "notistack";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import BackButton from "../components/BackButton";
+import Spinner from "../components/Spinner";
 
 const EditBook = () => {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [publishYear, setPublishYear] = useState('');
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [publishYear, setPublishYear] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -18,7 +18,7 @@ const EditBook = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`https://book-store-b8k4.onrender.com/books/${id}`);
+        const response = await axios.get(`http://localhost:3000/books/${id}`);
         const d = await response.data;
         setAuthor(d.data.author);
         setPublishYear(d.data.publishYear);
@@ -26,7 +26,7 @@ const EditBook = () => {
         setLoading(false);
       } catch (error) {
         setLoading(false);
-        alert('An error happened. Pls check console');
+        alert("An error happened. Pls check console");
         console.log(error);
       }
     };
@@ -44,11 +44,11 @@ const EditBook = () => {
     try {
       await axios.put(`https://book-store-b8k4.onrender.com/books/${id}`, data);
       setLoading(false);
-      enqueueSnackbar('Book Edited Successfully', { variant: 'success' });
-      navigate('/');
+      enqueueSnackbar("Book Edited Successfully", { variant: "success" });
+      navigate("/");
     } catch (error) {
       setLoading(false);
-      enqueueSnackbar('Error', { variant: 'error' });
+      enqueueSnackbar("Error", { variant: "error" });
       console.log(error);
     }
   };
@@ -57,7 +57,7 @@ const EditBook = () => {
     <div className="p-4">
       <BackButton />
       <h1 className="text-3xl my-4">Edit Book</h1>
-      {loading ? <Spinner /> : ''}
+      {loading ? <Spinner /> : ""}
       <div className="flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto">
         <div className="my-4">
           <label className="text-xl mr-4 text-gray-500">Title</label>
