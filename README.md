@@ -97,12 +97,6 @@ book-store
 
 ---
 
-## 📸 Screenshots
-
-📌 *Add your UI screenshots here for better visualization.*
-
----
-
 ## 🧠 What I Learned
 
 * Full-stack development with **MERN stack**
@@ -120,11 +114,5 @@ book-store
 * 🔍 Add search and filter options
 * ⭐ Add book ratings and reviews
 * ☁️ Deploy on cloud platforms (Render, Vercel, MongoDB Atlas)
-
----
-
-## 🛡️ License
-
-This project is licensed under the **MIT License** – feel free to use and modify it.
 
 ---
